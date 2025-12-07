@@ -1,0 +1,191 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Сервіс інвентаризації",
+    "version": "1.0.0",
+    "description": "Документація API сервісу інвентаризації. Дозволяє реєструвати пристрої, оновлювати інформацію, видаляти та переглядати фото."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Локальний сервер"
+    }
+  ],
+  "paths": {
+    "/register": {
+      "post": {
+        "summary": "Реєстрація нового пристрою",
+        "description": "Створює новий запис в інвентарі. Поле `inventory_name` є обовʼязковим.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "inventory_name": {
+                    "type": "string",
+                    "description": "Назва пристрою"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Опис пристрою"
+                  },
+                  "photo": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Фото пристрою (необовʼязкове)"
+                  }
+                },
+                "required": ["inventory_name"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Пристрій успішно зареєстровано" },
+          "400": { "description": "Помилка: не передано назву пристрою" }
+        }
+      }
+    },
+
+    "/inventory": {
+      "get": {
+        "summary": "Отримати всі пристрої",
+        "description": "Повертає список усіх зареєстрованих пристроїв.",
+        "responses": {
+          "200": { "description": "Успішне отримання списку" }
+        }
+      }
+    },
+
+    "/inventory/{id}": {
+      "get": {
+        "summary": "Отримати пристрій за ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "ID пристрою"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Пристрій знайдено" },
+          "404": { "description": "Пристрій не знайдено" }
+        }
+      },
+
+      "put": {
+        "summary": "Оновити назву/опис пристрою",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Нова назва пристрою"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Новий опис пристрою"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          { "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Інформацію пристрою оновлено" },
+          "404": { "description": "Пристрій не знайдено" }
+        }
+      },
+
+      "delete": {
+        "summary": "Видалити пристрій за ID",
+        "parameters": [
+          { "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Пристрій видалено" },
+          "404": { "description": "Пристрій не знайдено" }
+        }
+      }
+    },
+
+    "/inventory/{id}/photo": {
+      "get": {
+        "summary": "Отримати фото пристрою",
+        "parameters": [
+          { "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Повертається файл зображення" },
+          "404": { "description": "Фото відсутнє або файл не знайдено" }
+        }
+      },
+
+      "put": {
+        "summary": "Оновити фото пристрою",
+        "parameters": [
+          { "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "photo": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Нове фото пристрою"
+                  }
+                },
+                "required": ["photo"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Фото оновлено" },
+          "404": { "description": "Пристрій не знайдено" }
+        }
+      }
+    },
+
+    "/search": {
+      "post": {
+        "summary": "Пошук пристрою за ID",
+        "description": "Форма URL-encoded: `id` — обовʼязкове поле, `has_photo` — опційне.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "description": "ID пристрою" },
+                  "has_photo": { "type": "string", "enum": ["on"], "description": "Додати URL фото" }
+                },
+                "required": ["id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Пристрій знайдено" },
+          "404": { "description": "Пристрій не знайдено" }
+        }
+      }
+    }
+  }
+}

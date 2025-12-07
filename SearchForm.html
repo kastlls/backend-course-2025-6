@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Inventory</title>
+</head>
 <body>
-    <h1>Inventory Search</h1>
-    <form action="/search" method="GET">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required>
-        <input type="checkbox" id="includePhoto" name="includePhoto">
-        <label for="includePhoto">Include photo in description</label>
-        <button type="submit">Search</button>
+    <h2>Пошук пристрою</h2>
+
+    <form action="/search" method="POST">
+        <label for="id">ID предмета:</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <label for="has_photo">Показати фото:</label>
+        <input type="checkbox" id="has_photo" name="has_photo"><br><br>
+
+        <button type="submit">Шукати</button>
     </form>
 </body>
 </html>

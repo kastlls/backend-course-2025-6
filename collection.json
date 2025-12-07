@@ -1,0 +1,328 @@
+{
+  "info": {
+    "_postman_id": "3028e0cc-d02d-4729-979a-9ec30435d222",
+    "name": "collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Inventory",
+      "id": "45c6f98a-9c2c-4aa6-af3c-f64110ab6d6b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "GET",
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/inventory",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "inventory"
+          ]
+        }
+      }
+    },
+    {
+      "name": "post search",
+      "id": "8397868f-a6af-4ffa-8e40-92f0edd91488",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "id",
+              "value": "1765049283578",
+              "type": "text",
+              "uuid": "19891c5d-d5c5-4644-b80a-5848a2886602"
+            },
+            {
+              "key": "has_photo",
+              "value": "on",
+              "type": "text",
+              "uuid": "c0738c4f-168a-4e42-8318-45b32ce25df7"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/search",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "search"
+          ]
+        }
+      }
+    },
+    {
+      "name": "delete",
+      "id": "d76e171c-4d32-4063-9fbc-c66b5d5ce555",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "DELETE",
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/inventory/1765051036336",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "inventory",
+            "1765051036336"
+          ]
+        }
+      }
+    },
+    {
+      "name": "put update photo",
+      "id": "d1bb78ef-0ab1-4d60-9d69-4c5d7d57b5d4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "photo",
+              "type": "file",
+              "uuid": "cca52b93-a88f-40e3-9302-b873a67beac4",
+              "src": [
+                "postman-cloud:///1f0d2d15-151d-4280-825b-f5e20f1577d6"
+              ]
+            },
+            {
+              "key": "",
+              "type": "file",
+              "uuid": "911c9464-fead-42ff-bd71-b1cf3449f27d",
+              "disabled": true
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/inventory/1765049283578/photo",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "inventory",
+            "1765049283578",
+            "photo"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET One Item",
+      "id": "5ec9e247-ef6b-4363-888f-af00aa109fb1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "GET",
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/inventory/1765049283578",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "inventory",
+            "1765049283578"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET Item Photo",
+      "id": "e4d04315-ac77-444d-830f-dc776e51e1f9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "GET",
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/inventory/1765049283578/photo",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "inventory",
+            "1765049283578",
+            "photo"
+          ]
+        }
+      }
+    },
+    {
+      "name": "post register",
+      "id": "1dce55cb-00ab-4bda-984c-c268cae855c2",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "type": "text",
+              "key": "id",
+              "value": "1765049283578"
+            },
+            {
+              "type": "text",
+              "key": "has_photo",
+              "value": "on"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "put update item",
+      "id": "4bbc2df7-0063-4783-81d6-a5333a938fd3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "user-agent": true,
+          "accept": true,
+          "accept-encoding": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Updated name\",\r\n  \"description\": \"PUT Works Now!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/inventory/1765049283578",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "inventory",
+            "1765049283578"
+          ]
+        }
+      }
+    }
+  ]
+}
